@@ -1,6 +1,7 @@
 # Configurable settings - Array of configurations
 $configurations = @(
     @{
+        Enabled = $true
         Name = "ILR 2024"
         IlrFolder = "\\missql01\c$\capita\ILR\2024\Nightly"
         FisPath = "\\missql01\UNITE\FIS\2024\DC-ILR-2425-FIS-Desktop.2425.11\ESFA.DC.ILR.Desktop.CLI.exe"
@@ -8,6 +9,7 @@ $configurations = @(
         ConnectionString = "Data Source=MISSQL01\ulive;Initial Catalog=ILR2425;Integrated Security=True;TrustServerCertificate=true"
     }
     @{
+        Enabled = $true
         Name = "ILR 2025"
         IlrFolder = "\\missql01\c$\capita\ILR\2025\Nightly"
         FisPath = "\\missql01\UNITE\FIS\2025\DC-ILR-2526-FIS-Desktop.2526.1\ESFA.DC.ILR.Desktop.CLI.exe"
@@ -23,7 +25,13 @@ function Invoke-FISConfiguration {
     )
     
     Write-Host "Processing configuration: $($config.Name)"
-    
+
+    # Skip if not enabled
+    if (-not $config.Enabled) {
+        Write-Host "Skipping configuration $($config.Name) as it is not enabled"
+        return $true
+    }
+
     # Get matching ILR files
     $filePaths = Get-ChildItem -Path $config.IlrFolder -Filter "ILR-????????-????-????????-??????-??.xml" -File
 

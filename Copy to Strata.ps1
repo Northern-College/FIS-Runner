@@ -1,6 +1,7 @@
 ﻿# Configurable settings - Array of configurations
 $configurations = @(
     @{
+        Enabled = $true
         Name = "FIS 2024"
         SourceRoot = "\\missql01\UNITE\FIS\Output\2024"
         DestPath = "C:\Orbital\StrataFileService\Watch"
@@ -8,6 +9,7 @@ $configurations = @(
         FilterYear = "2425"  # Year format in ILR filename (e.g., 2425 for 2024-25)
     }
     @{
+        Enabled = $true
         Name = "FIS 2025"
         SourceRoot = "\\missql01\UNITE\FIS\Output\2025"
         DestPath = "C:\Orbital\StrataFileService\Watch"
@@ -23,6 +25,13 @@ function Copy-StrataFiles {
     )
     
     Write-Host "Processing configuration: $($config.Name)"
+
+    # Skip if not enabled
+    if (-not $config.Enabled) {
+        Write-Host "Skipping configuration $($config.Name) as it is not enabled"
+        return $true
+    }
+
     Write-Host "Filtering for year: $($config.FilterYear)"
     
     # Get all ILR folders matching the year filter and extract sortable date-time-version component
