@@ -2,14 +2,14 @@
 $configurations = @(
     @{
         Name = "FIS 2024"
-        SourceRoot = "\\missql01\UNITE\FIS\Output"
+        SourceRoot = "\\missql01\UNITE\FIS\Output\2024"
         DestPath = "C:\Orbital\StrataFileService\Watch"
         DestFileName = "FIS-CSV 2024.zip"
         FilterYear = "2425"  # Year format in ILR filename (e.g., 2425 for 2024-25)
     }
     @{
         Name = "FIS 2025"
-        SourceRoot = "\\missql01\UNITE\FIS\Output"
+        SourceRoot = "\\missql01\UNITE\FIS\Output\2025"
         DestPath = "C:\Orbital\StrataFileService\Watch"
         DestFileName = "FIS-CSV 2025.zip"
         FilterYear = "2526"  # Year format in ILR filename (e.g., 2526 for 2025-26)

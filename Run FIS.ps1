@@ -4,14 +4,14 @@ $configurations = @(
         Name = "ILR 2024"
         IlrFolder = "\\missql01\c$\capita\ILR\2024\Nightly"
         FisPath = "\\missql01\UNITE\FIS\2024\DC-ILR-2425-FIS-Desktop.2425.11\ESFA.DC.ILR.Desktop.CLI.exe"
-        OutputFolder = "\\missql01\UNITE\FIS\Output"
+        OutputFolder = "\\missql01\UNITE\FIS\Output\2024"
         ConnectionString = "Data Source=MISSQL01\ulive;Initial Catalog=ILR2425;Integrated Security=True;TrustServerCertificate=true"
     }
     @{
         Name = "ILR 2025"
         IlrFolder = "\\missql01\c$\capita\ILR\2025\Nightly"
         FisPath = "\\missql01\UNITE\FIS\2025\DC-ILR-2526-FIS-Desktop.2526.1\ESFA.DC.ILR.Desktop.CLI.exe"
-        OutputFolder = "\\missql01\UNITE\FIS\Output"
+        OutputFolder = "\\missql01\UNITE\FIS\Output\2025"
         ConnectionString = "Data Source=MISSQL01\ulive;Initial Catalog=ILR2526;Integrated Security=True;TrustServerCertificate=true"
     }
 )
